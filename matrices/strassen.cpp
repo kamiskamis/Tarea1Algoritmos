@@ -158,5 +158,3 @@ int main()
 		COL_2 - 1);
 }
 
-// Time Complexity: O(n^3)
-// Code Contributed By: lucasletum

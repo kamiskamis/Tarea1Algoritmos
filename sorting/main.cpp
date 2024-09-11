@@ -4,8 +4,8 @@
 #include "merge.h"
 #include "quick.h"
 #include "funcion.h"
-
 using namespace std;
+
 
 
 void printVector(const vector<int>& vec) {
@@ -16,32 +16,29 @@ void printVector(const vector<int>& vec) {
 }
 
 int main() {
-    int size = 20;
-    vector<int> dataset = generar_dataset(size, 100); 
+    int size = 10000;
+    vector<int> dataset = generar_dataset(size, 100000000, "semi"); 
     vector<int> aux= dataset;
     cout<<"Dataset generado: ";
     printVector(dataset); 
 
     aux= dataset;
-    quick_sort(aux,0,size-1);
-    cout<<"Quick sort: ";
-    printVector(aux);
+    cout << "Ordenamiento Quick Sort:" <<endl;
+    tiempo_quick(aux);
+
 
     aux= dataset;
-    mergeSort(aux, 0, size-1);
-    cout<<"Merge sort: ";
-    printVector(aux);
+    cout << "Ordenamiento Merge Sort:" <<endl;
+    tiempo_merge(aux);
+
 
     aux= dataset;
-    bubble_sort(aux);
-    cout<<"Bubble sort: ";
-    printVector(aux); 
+    cout << "Ordenamiento Bubble Sort:" <<endl;
+    tiempo_bubble(aux);
+
 
     aux=dataset;
-    integrada(aux);
-    cout<<"Funcion ordenamiento: ";
-    printVector(aux);
-
-
+    cout << "Ordenamiento funcion integrada:" <<endl;
+    tiempo_integrada(aux);
     return 0;
 }

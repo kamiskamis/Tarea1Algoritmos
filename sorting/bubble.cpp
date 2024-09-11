@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include <algorithm>
 using namespace std;
+using namespace std::chrono;
 
 void bubble_sort(vector<int>& dataset){
     int n = dataset.size();
@@ -18,4 +19,15 @@ void bubble_sort(vector<int>& dataset){
     }
 }
 
+void tiempo_bubble(vector<int> dataset){
+    auto start = high_resolution_clock::now();
 
+    bubble_sort(dataset);
+
+    auto end = high_resolution_clock::now();
+
+    duration<double> duration = end - start;
+
+    cout << "Tiempo de ejecución Bubblesort: " << duration.count() << " segundos" << endl;
+
+}

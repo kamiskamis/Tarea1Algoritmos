@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using namespace std::chrono;
 
 // Función para particionar el arreglo
 int partition(vector<int>& arr, int low, int high) {
@@ -29,4 +30,18 @@ void quick_sort(vector<int>& arr, int low, int high) {
         quick_sort(arr, low, pi - 1);
         quick_sort(arr, pi + 1, high);
     }
+}
+
+void tiempo_quick(vector<int> dataset){
+    auto start = high_resolution_clock::now();
+
+    quick_sort(dataset, 0, dataset.size()/2);
+
+    auto end = high_resolution_clock::now();
+
+    duration<double> duration = end - start;
+
+    cout << "Tiempo de ejecución Quicksort: " << duration.count() << " segundos" << endl;
+
+    
 }

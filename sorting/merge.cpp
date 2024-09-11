@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using namespace std::chrono;
 
 // Función para combinar dos sub-vectores ordenados en un único sub-vector ordenado
 void merge(vector<int>& arr, int left, int mid, int right)
@@ -56,4 +57,18 @@ void mergeSort(vector<int>& arr, int left, int right)
     mergeSort(arr, left, mid);
     mergeSort(arr, mid + 1, right);
     merge(arr, left, mid, right);
+}
+
+void tiempo_merge(vector<int> dataset){
+    auto start = high_resolution_clock::now();
+
+    mergeSort(dataset, 0, dataset.size() - 1);
+
+    auto end = high_resolution_clock::now();
+
+    duration<double> duration = end - start;
+
+    cout << "Tiempo de ejecución Mergesort: " << duration.count() << " segundos" << endl;
+
+    
 }
